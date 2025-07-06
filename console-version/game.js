@@ -1,14 +1,20 @@
-console.log("Welcome to Tic-Tac-Toe!");
+const modeInput = prompt(
+  "Welcome to Tic-Tac-Toe!\nChoose Game Mode:\n1 - Player vs Player\n2 - Player vs Computer (Bot)"
+);
 
-const mode = prompt("Choose Game Mode: 'PvP' or 'PvE'").toLowerCase();
+let mode;
+if (modeInput === "1") mode = "pvp";
+else if (modeInput === "2") mode = "pve";
+else mode = null;
 
 if (mode === "pvp") {
     PvPGame.start();
 } else if (mode === "pve") {
     PvEGame.start();
 } else {
-    alert("Invalid game mode selected.");
+    alert("Invalid choice. Please reload the page and select a valid option.");
 }
+
 
 // ------------------ PvP Game Module ------------------
 
