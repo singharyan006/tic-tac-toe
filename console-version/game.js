@@ -1,146 +1,204 @@
-console.log("Hello Users! Let's play Tic-Tac-Toe");
+const modeInput = prompt(
+  "Welcome to Tic-Tac-Toe!\nChoose Game Mode:\n1 - Player vs Player\n2 - Player vs Computer (Bot)"
+);
 
-// ===== Player Factory =====
-const Player = (name, symbol) => {
-    return { name, symbol };
-};
+let mode;
+if (modeInput === "1") mode = "pvp";
+else if (modeInput === "2") mode = "pve";
+else mode = null;
 
-// ===== Gameboard Module =====
-const Gameboard = (() => {
-    let board = [
+if (mode === "pvp") {
+    PvPGame.start();
+} else if (mode === "pve") {
+    PvEGame.start();
+} else {
+    alert("Invalid choice. Please reload the page and select a valid option.");
+}
+
+
+// ------------------ PvP Game Module ------------------
+
+const PvPGame = (() => {
+    const gameBoard = [
         [" ", " ", " "],
         [" ", " ", " "],
         [" ", " ", " "]
     ];
 
-    const printBoard = () => {
-        for (let i = 0; i < board.length; i++) {
-            console.log(board[i].join(" | "));
-            if (i < board.length - 1) {
-                console.log("--+---+--");
-            }
+    function printBoard() {
+        for (let i = 0; i < gameBoard.length; i++) {
+            console.log(gameBoard[i].join(" | "));
+            if (i < gameBoard.length - 1) console.log("--+---+--");
         }
-    };
+    }
 
-    const setMove = (row, column, symbol) => {
-        board[row][column] = symbol;
-    };
+    function Player(name, symbol) {
+        return { name, symbol };
+    }
 
-    const isValidMove = (row, column) => {
-        return row >= 0 && row < 3 && column >= 0 && column < 3 && board[row][column] === " ";
-    };
+    const player1 = Player(prompt("Enter name for Player 1:"), prompt("Enter symbol for Player 1 (X or O):"));
+    const player2 = Player(prompt("Enter name for Player 2:"), prompt("Enter symbol for Player 2 (X or O):"));
 
-    const isFull = () => {
-        for (let row of board) {
-            if (row.includes(" ")) return false;
-        }
-        return true;
-    };
-
-    const reset = () => {
-        board = [
-            [" ", " ", " "],
-            [" ", " ", " "],
-            [" ", " ", " "]
-        ];
-    };
-
-    const getBoard = () => board;
-
-    return {
-        printBoard,
-        setMove,
-        isValidMove,
-        isFull,
-        reset,
-        getBoard
-    };
-})();
-
-// ===== Game Controller Module =====
-const Game = (() => {
-    let player1, player2, currentPlayer;
-
-    const init = () => {
-        const player1Name = prompt(`Enter name for Player 1:`);
-        const player1Symbol = prompt(`Enter symbol for ${player1Name} ('X'/'O')`);
-        const player2Name = prompt(`Enter name for Player 2:`);
-        let player2Symbol = prompt(`Enter symbol for ${player2Name} ('X'/'O')`);
-
-        // Prevent duplicate symbols
-        if (player1Symbol === player2Symbol) {
-            alert("Both players can't have the same symbol! Assigning default symbols.");
-            player1Symbol = "X";
-            player2Symbol = "O";
-        }
-
-        player1 = Player(player1Name, player1Symbol);
-        player2 = Player(player2Name, player2Symbol);
-        currentPlayer = player1;
-
-        play();
-    };
-
-    const getMove = () => {
-        const row = parseInt(prompt(`${currentPlayer.name} (${currentPlayer.symbol}), enter row (0, 1, 2):`));
-        const column = parseInt(prompt(`${currentPlayer.name} (${currentPlayer.symbol}), enter column (0, 1, 2):`));
+    function getMove(player) {
+        const row = parseInt(prompt(`${player.name} (${player.symbol}), enter row (0-2):`));
+        const column = parseInt(prompt(`${player.name} (${player.symbol}), enter column (0-2):`));
         return { row, column };
-    };
+    }
 
-    const checkWin = (symbol) => {
-        const board = Gameboard.getBoard();
+    function isValidMove(row, column) {
+        return row >= 0 && row < 3 && column >= 0 && column < 3 && gameBoard[row][column] === " ";
+    }
 
+    function checkWin(symbol) {
         for (let i = 0; i < 3; i++) {
             if (
-                board[i][0] === symbol && board[i][1] === symbol && board[i][2] === symbol ||
-                board[0][i] === symbol && board[1][i] === symbol && board[2][i] === symbol
-            ) {
-                return true;
-            }
+                gameBoard[i][0] === symbol && gameBoard[i][1] === symbol && gameBoard[i][2] === symbol ||
+                gameBoard[0][i] === symbol && gameBoard[1][i] === symbol && gameBoard[2][i] === symbol
+            ) return true;
         }
-
         if (
-            board[0][0] === symbol && board[1][1] === symbol && board[2][2] === symbol ||
-            board[0][2] === symbol && board[1][1] === symbol && board[2][0] === symbol
-        ) {
-            return true;
-        }
+            gameBoard[0][0] === symbol && gameBoard[1][1] === symbol && gameBoard[2][2] === symbol ||
+            gameBoard[0][2] === symbol && gameBoard[1][1] === symbol && gameBoard[2][0] === symbol
+        ) return true;
 
         return false;
-    };
+    }
 
-    const play = () => {
+    function isBoardFull() {
+        return gameBoard.every(row => row.every(cell => cell !== " "));
+    }
+
+    function start() {
+        console.log("Starting PvP Game...");
+        printBoard();
+
+        let currentPlayer = player1;
+
         while (true) {
-            Gameboard.printBoard();
+            let move = getMove(currentPlayer);
 
-            let move = getMove();
-            while (!Gameboard.isValidMove(move.row, move.column)) {
+            while (!isValidMove(move.row, move.column)) {
                 alert("Invalid move! Try again.");
-                move = getMove();
+                move = getMove(currentPlayer);
             }
 
-            Gameboard.setMove(move.row, move.column, currentPlayer.symbol);
+            gameBoard[move.row][move.column] = currentPlayer.symbol;
+            printBoard();
 
             if (checkWin(currentPlayer.symbol)) {
-                Gameboard.printBoard();
                 alert(`${currentPlayer.name} wins!`);
                 break;
             }
 
-            if (Gameboard.isFull()) {
-                Gameboard.printBoard();
+            if (isBoardFull()) {
                 alert("It's a draw!");
                 break;
             }
 
             currentPlayer = currentPlayer === player1 ? player2 : player1;
         }
-    };
+    }
 
-    return {
-        init
-    };
+    return { start };
 })();
 
-// ===== Run Game =====
-Game.init();
+// ------------------ PvE Game Module ------------------
+
+const PvEGame = (() => {
+    const gameBoard = [
+        [" ", " ", " "],
+        [" ", " ", " "],
+        [" ", " ", " "]
+    ];
+
+    function printBoard() {
+        for (let i = 0; i < gameBoard.length; i++) {
+            console.log(gameBoard[i].join(" | "));
+            if (i < gameBoard.length - 1) console.log("--+---+--");
+        }
+    }
+
+    const human = {
+        name: prompt("Enter your name:"),
+        symbol: prompt("Choose your symbol (X or O):")
+    };
+
+    const bot = {
+        name: "Bot",
+        symbol: human.symbol === "X" ? "O" : "X"
+    };
+
+    function isValidMove(row, column) {
+        return row >= 0 && row < 3 && column >= 0 && column < 3 && gameBoard[row][column] === " ";
+    }
+
+    function getBotMove() {
+        let row, column;
+        do {
+            row = Math.floor(Math.random() * 3);
+            column = Math.floor(Math.random() * 3);
+        } while (!isValidMove(row, column));
+        return { row, column };
+    }
+
+    function checkWin(symbol) {
+        for (let i = 0; i < 3; i++) {
+            if (
+                gameBoard[i][0] === symbol && gameBoard[i][1] === symbol && gameBoard[i][2] === symbol ||
+                gameBoard[0][i] === symbol && gameBoard[1][i] === symbol && gameBoard[2][i] === symbol
+            ) return true;
+        }
+        if (
+            gameBoard[0][0] === symbol && gameBoard[1][1] === symbol && gameBoard[2][2] === symbol ||
+            gameBoard[0][2] === symbol && gameBoard[1][1] === symbol && gameBoard[2][0] === symbol
+        ) return true;
+
+        return false;
+    }
+
+    function isBoardFull() {
+        return gameBoard.every(row => row.every(cell => cell !== " "));
+    }
+
+    function start() {
+        console.log("Starting PvE Game...");
+        printBoard();
+
+        let currentPlayer = human;
+
+        while (true) {
+            let move;
+
+            if (currentPlayer === human) {
+                const row = parseInt(prompt(`${human.name}, enter row (0-2):`));
+                const column = parseInt(prompt(`${human.name}, enter column (0-2):`));
+                move = { row, column };
+            } else {
+                move = getBotMove();
+                console.log(`Bot plays at (${move.row}, ${move.column})`);
+            }
+
+            if (!isValidMove(move.row, move.column)) {
+                if (currentPlayer === human) alert("Invalid move! Try again.");
+                continue;
+            }
+
+            gameBoard[move.row][move.column] = currentPlayer.symbol;
+            printBoard();
+
+            if (checkWin(currentPlayer.symbol)) {
+                alert(`${currentPlayer.name} wins!`);
+                break;
+            }
+
+            if (isBoardFull()) {
+                alert("It's a draw!");
+                break;
+            }
+
+            currentPlayer = currentPlayer === human ? bot : human;
+        }
+    }
+
+    return { start };
+})();
