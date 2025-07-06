@@ -9,17 +9,16 @@ The current version supports both **Player vs Player** and **Player vs Computer 
 ## ▶️ How to Run
 
 1. Clone this repository:
-    ```bash
+```
    git clone https://github.com/singharyan006/Tic-Tac-Toe.git
-    ```
+```
 2. Open index.html in your browser
 3. Open your browser's DevTools console
 4. Follow the on-screen prompts to play the game
-    ```
+```
 ⚠️ This game is console-only in v1.x — UI support will be introduced in v2.0-ui
-    ```
-
-    ---
+```
+---
 
 ## ✅ Features
 
@@ -75,11 +74,16 @@ Tic-Tac-Toe/
 
 ---
 
-## 📌 Current Version
+## 📌 Versions
 
 **`v1.1-console`**
 
 > [View latest release](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.1-console)
+
+
+**`v1.0-console`**
+
+> [View previous release](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.0-console)
 
 ---
 
