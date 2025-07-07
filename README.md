@@ -1,4 +1,4 @@
-# 🎮 Tic-Tac-Toe (Console Edition)
+# 🎮 Tic-Tac-Toe (UI Edition)
 
 A visually polished, responsive Tic-Tac-Toe game built using **HTML**, **CSS**, and **JavaScript**. Now featuring a complete browser-based UI with support for both **Player vs Player** and **Player vs Bot** gameplay modes — no console required!
 
