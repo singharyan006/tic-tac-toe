@@ -1,0 +1,218 @@
+/* ========== RESET & BASE STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+        font-family: 'Irish Grover';
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #2f343d;
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* ========== HEADER / GAME TITLE ========== */
+header {
+    background-color: #1f232b;
+    text-align: center;
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+}
+
+header>div {
+    font-size: 4rem;
+    padding: 1rem;
+    font-family: 'Irish Grover';
+}
+
+.space {
+    font-size: 1.5rem;
+    align-content: center;
+    color: #8a7a66;
+}
+
+/* ========== HOME CONTAINER ========== */
+.home-container {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #393E46;
+    margin: 10vh 25vw;
+    box-shadow: 1px 1px 16px rgba(223, 208, 184, 0.25);
+    border-radius: 1rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.dirn {
+    margin-bottom: 2rem;
+    font-weight: 500;
+    color: #DFD0B8;
+    font-family: 'Irish Grover';
+}
+
+/* ========== MODE SELECTION CARDS ========== */
+.mode-selection {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 2rem;
+}
+
+.mode-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+    height: 220px;
+    background-color: #DFD0B8;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.mode-card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 1px 1px 16px rgba(223, 208, 184, 0.25);
+    background-color: #948979;
+}
+
+.mode-title {
+    background-color: #2f343d;
+    width: 100%;
+    margin-top: auto;
+    border-radius: 1rem;
+}
+
+/* Mode images */
+#pvp-mode {
+    background-image: url(assets/man.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#pve-mode {
+    background-image: url(assets/robot.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ========== START BUTTON ========== */
+.start-btn {
+    background-color: #222831;
+    color: white;
+    font-size: 1.8rem;
+    padding: 0.6rem 2rem;
+    border: 2px solid #948979;
+    cursor: pointer;
+    border-radius: 1rem;
+    font-family: 'Irish Grover','Georgia', serif;
+    transition: background 0.3s;
+}
+
+.start-btn:hover {
+    background-color: #8a7a66;
+}
+
+/* ========== GAME MODAL ========== */
+.game-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modal-content {
+    background-color: #393E46;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    width: 400px;
+    margin: 10vh 25vw;
+}
+
+/* ========== PLAYER INFO ========== */
+.player-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+/* ========== GAME BOARD GRID ========== */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 8px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.cell {
+    background-color: #ddd;
+    border-radius: 5px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: black;
+}
+
+/* ========== RESULT BAR ========== */
+.result-bar {
+    margin-top: 1.5rem;
+    background-color: #ddd;
+    color: #222;
+    padding: 0.8rem;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ========== GAME CONTROLS (Restart / Home) ========== */
+.game-controls {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.control-btn {
+    background-color: #222831;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1.2rem;
+    border: 2px solid #948979;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-family: 'Georgia', serif;
+}
+
+.control-btn:hover {
+    background-color: #8a7a66;
+}
+
+/* ========== UTILITY CLASSES ========== */
+.hidden {
+    display: none;
+}

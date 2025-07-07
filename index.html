@@ -1,11 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Meta tags for responsiveness and character encoding -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title and external stylesheet -->
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-    <script src="console-version/game.js"></script>
+    <!-- 🧩 Game Header -->
+    <header>
+        <div class="game-name">T</div>
+        <div class="game-name">I</div>
+        <div class="game-name">C</div>
+        <div class="space">X</div>
+        <div class="game-name">T</div>
+        <div class="game-name">A</div>
+        <div class="game-name">C</div>
+        <div class="space">O</div>
+        <div class="game-name">T</div>
+        <div class="game-name">O</div>
+        <div class="game-name">E</div>
+    </header>
+
+    <!-- 🏠 Home Screen with Mode Selection -->
+    <main class="home-container">
+        <h1 class="title">LET'S PLAY</h1>
+        <h2 class="dirn">Select a mode and click on START</h2>
+
+        <!-- 🎮 Mode Selection Cards -->
+        <div class="mode-selection">
+            <div class="mode-card" id="pvp-mode">
+                <div class="mode-title">PLayer vs Player</div>
+            </div>
+            <div class="mode-card" id="pve-mode">
+                <div class="mode-title">PLayer vs Bot</div>
+            </div>
+        </div>
+
+        <!-- 🚀 Start Button -->
+        <button class="start-btn" id="start-btn">START</button>
+    </main>
+
+    <!-- 🪟 Game Modal (appears after START is clicked) -->
+    <div class="game-modal hidden" id="gameModal">
+        <div class="modal-content">
+
+            <!-- 👤 Player Info -->
+            <div class="player-info">
+                <div id="player1-info">Player1 (X)</div>
+                <div id="player2-info">Player2 (O)</div>
+            </div>
+
+            <!-- #️⃣ 3x3 Game Board Grid -->
+            <div class="game-board" id="gameBoard">
+                <div class="cell" data-cell="0"></div>
+                <div class="cell" data-cell="1"></div>
+                <div class="cell" data-cell="2"></div>
+                <div class="cell" data-cell="3"></div>
+                <div class="cell" data-cell="4"></div>
+                <div class="cell" data-cell="5"></div>
+                <div class="cell" data-cell="6"></div>
+                <div class="cell" data-cell="7"></div>
+                <div class="cell" data-cell="8"></div>
+            </div>
+
+            <!-- ✅ Result Message -->
+            <div class="result-bar" id="resultBar"></div>
+
+            <!-- 🔁 Game Control Buttons -->
+            <div class="game-controls">
+                <button id="restartBtn" class="control-btn">Restart</button>
+                <button id="homeBtn" class="control-btn">Home</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 📜 JavaScript Logic -->
+    <script src="script.js"></script>
 </body>
+
 </html>
