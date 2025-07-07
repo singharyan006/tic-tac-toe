@@ -1,8 +1,14 @@
 # 🎮 Tic-Tac-Toe (Console Edition)
 
-A modular, console-based Tic-Tac-Toe game built using **vanilla JavaScript**, following clean architecture with factory functions and the module pattern.
+A visually polished, responsive Tic-Tac-Toe game built using **HTML**, **CSS**, and **JavaScript**. Now featuring a complete browser-based UI with support for both **Player vs Player** and **Player vs Bot** gameplay modes — no console required!
 
-The current version supports both **Player vs Player** and **Player vs Computer (Bot)** modes, playable directly through the browser console.
+🔗 [Live Demo](https://tic-tac-toe-name-already-taken.netlify.app/)
+
+
+---
+
+## 🖼️ Preview
+<div align="center"> <img src="./assets/preview1.png" width="45%" alt="Preview 1"/> <img src="./assets/preview2.png" width="45%" alt="Preview 2"/> </div>
 
 ---
 
@@ -12,11 +18,10 @@ The current version supports both **Player vs Player** and **Player vs Computer 
 ```
    git clone https://github.com/singharyan006/Tic-Tac-Toe.git
 ```
-2. Open index.html in your browser
-3. Open your browser's DevTools console
-4. Follow the on-screen prompts to play the game
+2. Open index.html in your browser — you're ready to play!
+
 ```
-⚠️ This game is console-only in v1.x — UI support will be introduced in v2.0-ui
+⚠️ The console-based versions (v1.x) are still available in previous releases.
 ```
 ---
 
@@ -24,50 +29,59 @@ The current version supports both **Player vs Player** and **Player vs Computer 
 
 - Player vs Player gameplay
 - Player vs Computer (Bot) gameplay
-- Board rendered in console
-- Win and tie detection logic
+- Win and draw detection logic
+- Responsive and animated UI
 - Random move generation for bot
-- Clean code architecture using factory functions and module pattern (IIFE)
-- Minimal global scope usage
+- Clean architecture using factory functions and module pattern (IIFE)
+- Modular, reusable code with minimal global scope usage
 
 ---
 
 ## 🕹️ Game Modes
 
 - 👤 **Player vs Player**  
-  Two players take turns making moves by entering row and column values via prompt.
+  Two players take turns by clicking on the board to make their move.
 
 - 🤖 **Player vs Computer (Bot)**  
-  The bot automatically chooses a valid empty cell after the player’s move.
+  You play as X, and the bot (O) picks a random empty cell after your move.
 
 ---
 
 ## 📦 Releases
 
-| Version | Description |
-|---------|-------------|
-| [v1.0-console](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.0-console) | Initial release with Player vs Player support |
-| [v1.1-console](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.1-console) | Added Player vs Computer (Bot) mode |
+| Version                                                                                  | Description                                         |
+| ---------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| [`v2.0-ui`](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v2.0-ui)           | First interactive UI version with PvP and Bot modes |
+| [`v1.1-console`](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.1-console) | Console version with Bot support                    |
+| [`v1.0-console`](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.0-console) | Initial PvP-only console version                    |
+
 
 ---
 
 ## 📁 Project Structure
-```
 Tic-Tac-Toe/
-├── console-version/
-│ └── game.js       # Game logic for both PvP and PvE
-├── index.html      # Entry file to launch game in browser
-├── assets/         # Reserved for future use (UI, images)
+├── assets/             # Images and UI assets
+│   ├── preview1.png
+│   ├── preview2.png
+│   ├── favicon.png
+│   ├── man.png
+│   └── robot.png
+├── console-version/    # Console-based version
+│   └── game.js
+├── index.html          # UI entry point
+├── style.css           # UI styling
+├── script.js           # UI logic
 └── README.md
-```
+
 
 ---
 
 ## 🧠 Built With
 
-- HTML (minimal)
-- CSS (not yet used, for future UI)
+- HTML5
+- CSS3 (Flexbox, Responsive Design)
 - JavaScript (ES6+)
+- Vanilla JS (no frameworks)
 - Factory Functions
 - IIFE (Module Pattern)
 - Git & GitHub for versioning
@@ -76,13 +90,13 @@ Tic-Tac-Toe/
 
 ## 📌 Versions
 
+**`v2.0-ui`**
+> [View latest release](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v2.0-ui)
+
 **`v1.1-console`**
-
-> [View latest release](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.1-console)
-
+> [View previous release](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.1-console)
 
 **`v1.0-console`**
-
 > [View previous release](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.0-console)
 
 ---
@@ -90,6 +104,6 @@ Tic-Tac-Toe/
 ## 🙌 Author
 
 **Aryan Singh**  
-A console-based experience laying the foundation for a fully interactive UI version.
+Bringing you a clean, interactive Tic-Tac-Toe experience — from terminal to touch ✨
 
 ---
