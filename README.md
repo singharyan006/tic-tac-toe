@@ -59,6 +59,7 @@ A visually polished, responsive Tic-Tac-Toe game built using **HTML**, **CSS**, 
 ---
 
 ## 📁 Project Structure
+```
 Tic-Tac-Toe/
 ├── assets/             # Images and UI assets
 │   ├── preview1.png
@@ -72,7 +73,7 @@ Tic-Tac-Toe/
 ├── style.css           # UI styling
 ├── script.js           # UI logic
 └── README.md
-
+```
 
 ---
 
