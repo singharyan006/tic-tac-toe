@@ -16,7 +16,7 @@ A visually polished, responsive Tic-Tac-Toe game built using **HTML**, **CSS**, 
 
 1. Clone this repository:
 ```
-   git clone https://github.com/singharyan006/Tic-Tac-Toe.git
+   git clone https://github.com/singharyan006/tic-tac-toe.git
 ```
 2. Open index.html in your browser — you're ready to play!
 
@@ -51,9 +51,9 @@ A visually polished, responsive Tic-Tac-Toe game built using **HTML**, **CSS**, 
 
 | Version                                                                                  | Description                                         |
 | ---------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| [`v2.0-ui`](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v2.0-ui)           | First interactive UI version with PvP and Bot modes |
-| [`v1.1-console`](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.1-console) | Console version with Bot support                    |
-| [`v1.0-console`](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.0-console) | Initial PvP-only console version                    |
+| [`v2.0-ui`](https://github.com/singharyan006/tic-tac-toe/releases/tag/v2.0-ui)           | First interactive UI version with PvP and Bot modes |
+| [`v1.1-console`](https://github.com/singharyan006/tic-tac-toe/releases/tag/v1.1-console) | Console version with Bot support                    |
+| [`v1.0-console`](https://github.com/singharyan006/tic-tac-toe/releases/tag/v1.0-console) | Initial PvP-only console version                    |
 
 
 ---
@@ -92,13 +92,13 @@ Tic-Tac-Toe/
 ## 📌 Versions
 
 **`v2.0-ui`**
-> [View latest release](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v2.0-ui)
+> [View latest release](https://github.com/singharyan006/tic-tac-toe/releases/tag/v2.0-ui)
 
 **`v1.1-console`**
-> [View previous release](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.1-console)
+> [View previous release](https://github.com/singharyan006/tic-tac-toe/releases/tag/v1.1-console)
 
 **`v1.0-console`**
-> [View previous release](https://github.com/singharyan006/Tic-Tac-Toe/releases/tag/v1.0-console)
+> [View previous release](https://github.com/singharyan006/tic-tac-toe/releases/tag/v1.0-console)
 
 ---
 
